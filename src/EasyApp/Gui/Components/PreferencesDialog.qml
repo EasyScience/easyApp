@@ -144,12 +144,14 @@ EaElements.Dialog {
                 spacing: EaStyle.Sizes.fontPixelSize
 
                 EaElements.Label {
+                    enabled: false
                     anchors.verticalCenter: parent.verticalCenter
                     text: qsTr("Check on application start") + ":"
                 }
 
                 EaElements.CheckBox {
                     id: updatesCheckBox
+                    enabled: false
                     padding: 0
                     checked: EaGlobals.Vars.checkUpdateOnAppStart
                     onCheckedChanged: EaGlobals.Vars.checkUpdateOnAppStart = checked
@@ -157,6 +159,7 @@ EaElements.Dialog {
             }
 
             EaElements.SideBarButton {
+                enabled: false
                 width: checkOnAppStartRow.width
                 highlighted: true
                 text: qsTr("Check now")
@@ -295,17 +298,19 @@ EaElements.Dialog {
 
             // Language
             EaElements.Label {
+                enabled: false
                 text: qsTr("Language") + ":"
             }
 
             EaElements.ComboBox {
+                enabled: false
                 valueRole: "code"
                 textRole: "name"
 
                 model: EaGlobals.Vars.translator.languages
 
                 onActivated: EaGlobals.Vars.translator.selectLanguage(currentIndex)
-                Component.onCompleted: currentIndex = EaGlobals.Vars.translator.defaultLanguageIndex()
+                Component.onCompleted: currentIndex = 2 // EaGlobals.Vars.translator.defaultLanguageIndex()
             }
             // Language
 
